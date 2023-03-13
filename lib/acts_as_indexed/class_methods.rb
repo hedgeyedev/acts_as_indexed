@@ -162,7 +162,7 @@ module ActsAsIndexed
       return if aai_config.index_file.directory?
 
       index = new_index
-      find_in_batches({ :batch_size => 500 }) do |records|
+      find_in_batches(:batch_size => 500) do |records|
         index.add_records(records)
       end
     end
